@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    WildGames
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        /*.games-link {*/
+        /*    display: none;*/
+        /*}*/
+    </style>
+{% endblock %}
+
+{% block body %}
+    <section class="profilepage-body">
+        <div class="container-fluid profilepage-container">
+            <div class="row no-gutters homepage-welcome">
+                <h1>Welcome {{app.user.name}}</h1>
+            </div>
+{#            <div class="row no-gutters homepage-welcome">#}
+{#            </div>#}
+        </div>
+    </section>
+{% endblock %}
