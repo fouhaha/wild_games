@@ -29,14 +29,6 @@
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">
-            {% if app.user %}
-                <li class="nav-item">
-                    <p class="nav-link">#{#{{ app.user.email }}#}</p>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#{#{{ path('app_logout') }}#}#}">Se déconnecter</a>
-                </li>
-            {% endif %}
             {% if not app.user %}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('app_login') }}">Sign in</a>
@@ -50,7 +42,10 @@
                     <a class="nav-link" href="{#{{ path('app_login') }}#}">Nb of WC</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('app_profile') }}">User name</a>
+                    <a class="nav-link" href="{{ path('app_profile', {'user': app.user.id}) }}">{{ app.user.name }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#{#{{ path('app_logout') }}#}#}">Log out</a>
                 </li>
             {% endif %}
         </ul>

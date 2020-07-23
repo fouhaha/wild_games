@@ -19,8 +19,16 @@
             <div class="row no-gutters homepage-welcome">
                 <h1>Welcome {{app.user.name}}</h1>
             </div>
-{#            <div class="row no-gutters homepage-welcome">#}
-{#            </div>#}
+            <div>
+                {{ form_start(form, {
+                    'attr': {
+                        'class': 'form-group',
+                        'novalidate': 'novalidate'
+                    }}) }}
+
+                    <button type="submit" class="btn btn-search-user">Save</button>
+                {{ form_end(form) }}
+            </div>
         </div>
     </section>
 {% endblock %}
