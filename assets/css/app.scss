@@ -1,4 +1,95 @@
+@import "vars";
 @import "~bootstrap/scss/bootstrap";
-body {
-    background-color: lightgray;
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.navbar {
+    background-color: $primary-color;
+
+    a {
+        color: $secondary-color !important;
+    }
+
+    .dropdown-menu {
+        background-color: $primary-color;
+
+        .dropdown-item:hover {
+            color: $primary-color !important;
+        }
+    }
+}
+
+.homepage-body {
+    height: 100%;
+    background-image: $background01-small;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 150px;
+}
+
+.homepage-container {
+    height: 100%;
+
+    :first-child {
+        border-radius: 20px 0 0 0;
+    }
+
+    :last-child {
+        border-radius: 0 0 20px 0;
+    }
+
+    .homepage-welcome {
+        background-color: $primary-color;
+        opacity: 0.95;
+        color: $secondary-color;
+        text-align: center;
+        width: 75%;
+        margin: 0 auto;
+
+        h1 {
+            text-align: center;
+            width: 90%;
+            margin-right: auto;
+            margin-left: auto;
+            padding: 50px 0;
+        }
+
+        p {
+            margin-bottom: 50px;
+            text-align: center;
+            width: 90%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+    }
+}
+
+.loginpage {
+    background-color: $secondary-color;
+    height: 100%;
+
+    form {
+        width: 75%;
+        margin: 0 auto;
+        padding-top: 100px;
+
+        @media screen and (min-width: 768px) {
+            width: 400px;
+        }
+
+        .btn {
+            display: block;;
+            width: 50%;
+            margin: 30px auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-weight: 900;
+            font-size: xx-large
+        }
+    }
 }
