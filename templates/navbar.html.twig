@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md {#bg-dark navbar-dark#}">
+<nav class="navbar navbar-expand-md fixed-top">
     <a class="navbar-brand" href="#">WildGames</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -6,27 +6,26 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav mx-auto">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Catégories
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{#{{ path('program_index') }}#}">Séries</a>
-                    <a class="dropdown-item" href="#">Genre</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Games
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{#{{ path('program_index') }}#}">BlackJack</a>
+                        <a class="dropdown-item" href="#">Roulette</a>
+                        <a class="dropdown-item" href="#">421</a>
+                    </div>
+                {% endif %}
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Acteurs
+                <a class="nav-link dropdown-toggle games-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Games
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Acteurs</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    <a class="dropdown-item" href="#">BlackJack</a>
+                    <a class="dropdown-item" href="#">Roulette</a>
+                    <a class="dropdown-item" href="#">421</a>
                 </div>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Favoris<span class="sr-only">(current)</span></a>
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">
@@ -37,14 +36,23 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#{#{{ path('app_logout') }}#}#}">Se déconnecter</a>
                 </li>
-            {% else %}
+            {% endif %}
+            {% if not app.user %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{#{{ path('app_login') }}#}">Se connecter</a>
+                    <a class="nav-link" href="{{ path('app_login') }}">Sign in</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sign up</a>
                 </li>
             {% endif %}
-            <li class="nav-item">
-                <a class="nav-link" href="#">John Doe</a>
-            </li>
+            {% if app.user %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{#{{ path('app_login') }}#}">Nb of WC</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">User name</a>
+                </li>
+            {% endif %}
         </ul>
     </div>
 </nav>

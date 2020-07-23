@@ -4,6 +4,15 @@
     WildGames
 {% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .games-link {
+            display: none;
+        }
+    </style>
+{% endblock %}
+
 {% block body %}
     <section class="homepage-body">
         <div class="container-fluid homepage-container">
@@ -12,9 +21,6 @@
             </div>
             <div class="row no-gutters homepage-welcome">
                 <p>Play as a guest or log in for a better experience and to enjoy fully all of our services !</p>
-            </div>
-            <div class="row no-gutters">
-
             </div>
         </div>
     </section>
