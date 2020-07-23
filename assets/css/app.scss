@@ -1,3 +1,50 @@
-body {
-    background-color: lightgray;
+@import "vars";
+@import "~bootstrap/scss/bootstrap";
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.navbar {
+    background-color: $primary-color;
+
+    a {
+        color: $secondary-color !important;
+    }
+}
+
+.homepage-body {
+    height: 100%;
+    background-image: $background01-small;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 150px;
+}
+
+.homepage-container {
+    height: 100%;
+
+    .homepage-welcome {
+        background-color: $primary-color;
+        opacity: 0.95;
+        color: $secondary-color;
+        text-align: center;
+
+        h1 {
+            text-align: center;
+            width: 90%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        p {
+            margin-bottom: 50px;
+            text-align: center;
+            width: 90%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+    }
 }

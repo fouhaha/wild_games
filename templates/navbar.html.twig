@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-md {#bg-dark navbar-dark#}">
+    <a class="navbar-brand" href="#">WildGames</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Catégories
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="{#{{ path('program_index') }}#}">Séries</a>
+                    <a class="dropdown-item" href="#">Genre</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Acteurs
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Acteurs</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Favoris<span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            {% if app.user %}
+                <li class="nav-item">
+                    <p class="nav-link">#{#{{ app.user.email }}#}</p>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#{#{{ path('app_logout') }}#}#}">Se déconnecter</a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{#{{ path('app_login') }}#}">Se connecter</a>
+                </li>
+            {% endif %}
+            <li class="nav-item">
+                <a class="nav-link" href="#">John Doe</a>
+            </li>
+        </ul>
+    </div>
+</nav>
