@@ -1,20 +1,56 @@
 @import "vars";
 @import "~bootstrap/scss/bootstrap";
+@font-face {
+    font-family: "Eastwood";
+    src: url("../fonts/eastwood_2/Eastwood.otf"),
+    url("../fonts/eastwood_2/Eastwood.ttf"),
+    url("../fonts/eastwood_2/Eastwood.woff2") format("woff2"),
+    url("../fonts/eastwood_2/Eastwood.woff") format("woff");
+}
+@font-face {
+    font-family: "Eastwood_Italic";
+    src: url("../fonts/eastwood_2/Eastwood Italic.otf"),
+    url("../fonts/eastwood_2/Eastwood Italic.ttf"),
+    url("../fonts/eastwood_2/Eastwood Italic.woff2") format("woff2"),
+    url("../fonts/eastwood_2/Eastwood Italic.woff") format("woff");
+}
+
 html, body {
     height: 100%;
+    width: 100%;
     margin: 0;
+
+    background-image: $background01-small;
+    background: -o-$background01-small;
+    background: -moz-$background01-small;
+    background: -webkit-$background01-small;
+    background: -ms-$background01-small;
+    background-position: center;
+    background-repeat: round;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .navbar {
     background-color: $primary-color;
-    height: 75px;
+    font-family: $eastwood-font;
+    color: $secondary-color;
 
     .navbar-brand {
-        font-size: 40px;
+        font-size: 3rem;
+    }
+
+    .custom-toggler .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(250,250,250)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    }
+
+    .custom-toggler.navbar-toggler {
+        border-color: $secondary-color;
     }
 
     a {
         color: $secondary-color !important;
+        font-size: 2rem;
     }
 
     .dropdown-menu {
@@ -28,47 +64,127 @@ html, body {
 
 .homepage-body {
     height: 100%;
-    background-image: $background01-small;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding-top: 150px;
+    width: 100%;
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+    .user-table-container {
+        justify-content: center;
+
+        .row {
+            justify-content: center;
+
+            .table-user {
+                background-color: $primary-color;
+                opacity: 0.95;
+                border-radius: 20px 0 20px 0;
+                width: 90%;
+                margin-top: 50px;
+                float: left;
+
+                a {
+                    color: $secondary-color;
+                }
+
+                th {
+                    font-size: 2rem;
+                    color: $secondary-color;
+                    text-align: center;
+                    border-bottom: 1px solid $secondary-color;
+                    border-top: 0;
+                    font-family: $eastwood-font;
+                }
+
+                td {
+                    font-size: 1rem;
+                    font-family: $roboto-font;
+                    color: $secondary-color;
+                    text-align: center;
+                    border: 0;
+                }
+
+                tr th {
+                    border-top: 0;
+                }
+
+                .tr-user:hover {
+                    background-color: $secondary-color;
+
+                    td, a {
+                        color: $primary-color;
+                    }
+                }
+            }
+        }
+    }
+
+    .homepage-container {
+        margin-top: 250px;
+        margin-bottom: 150px;
+        background-color: $primary-color;
+        width: 75%;
+        opacity: 0.95;
+        border-radius: 20px 0 20px 0;
+        font-family: $eastwood-font;
+
+        @media screen and (min-width: 768px) {
+            margin-top: 150px;
+        }
+
+        .homepage-welcome {
+            background-color: $primary-color;
+            opacity: 0.95;
+            color: $secondary-color;
+            text-align: center;
+            width: 90%;
+            margin: 0 auto;
+
+            h1 {
+                text-align: center;
+                width: 90%;
+                margin-right: auto;
+                margin-left: auto;
+                padding: 50px 0;
+                font-size: 3rem;
+            }
+
+            p {
+                margin-bottom: 50px;
+                text-align: center;
+                width: 90%;
+                margin-right: auto;
+                margin-left: auto;
+                font-size: 2rem;
+            }
+        }
+    }
+
+    .admin-homepage-container {
+        a {
+            font-size: 3rem;
+            color: $secondary-color;
+            text-align: center;
+            display: block;
+        }
+    }
 }
 
-.homepage-container {
-    height: 100%;
+.return-admin-page {
+    background-color: $secondary-color;
+    width: 30rem;
+    display: block;
+    margin: 30px auto;
+    border-radius: 10px;
+    border: 2px solid $primary-color;
+    opacity: 0.90;
 
-    :first-child {
-        border-radius: 20px 0 0 0;
-    }
-
-    :last-child {
-        border-radius: 0 0 20px 0;
-    }
-
-    .homepage-welcome {
-        background-color: $primary-color;
-        opacity: 0.95;
-        color: $secondary-color;
+    a {
+        color: $primary-color;
+        font-family: $eastwood-font;
+        font-size: 3rem;
+        display: block;
+        width: auto;
         text-align: center;
-        width: 75%;
-        margin: 0 auto;
-
-        h1 {
-            text-align: center;
-            width: 90%;
-            margin-right: auto;
-            margin-left: auto;
-            padding: 50px 0;
-        }
-
-        p {
-            margin-bottom: 50px;
-            text-align: center;
-            width: 90%;
-            margin-right: auto;
-            margin-left: auto;
-        }
     }
 }
 

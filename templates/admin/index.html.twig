@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="homepage-body">
+        <div class="container-fluid homepage-container admin-homepage-container">
+            <div class="row">
+                <div class="col-md">
+                    <a class="btn" href="{{ path('admin_users') }}" role="button">User list</a>
+                </div>
+                <div class="col-md">
+                    <div class="col-md">
+                        <a class="btn" href="#{#{{ path('admin_users') }}#}" role="button">blabla 1</a>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="col-md">
+                        <a class="btn" href="#{#{{ path('admin_users') }}#}" role="button">blabla 2</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block title %}
+
+{% endblock %}
+
