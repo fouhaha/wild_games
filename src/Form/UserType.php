@@ -13,12 +13,12 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            //->add('email')
+            ->add('email')
             //->add('roles')
             //->add('password')
-            //->add('name')
+            ->add('name')
             //->add('image')
-            //->add('coins')
+            ->add('coins')
             //->add('isVerified')
             ->add('imageFile', VichFileType::class, [
                 'required' => false,

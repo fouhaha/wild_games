@@ -13,6 +13,10 @@ class HomeController extends AbstractController
      */
     public function index()
     {
+//         if ($this->getUser()) {
+//             return $this->redirectToRoute('/**A définir, certainement game_index/');
+//         }
+
         return $this->render('home.html.twig');
     }
 }
