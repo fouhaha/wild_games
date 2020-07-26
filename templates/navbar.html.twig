@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md fixed-top">
     <a class="navbar-brand" href="{{ path('app_index') }}">WildGames</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -42,8 +42,12 @@
                     <a class="nav-link" href="{#{{ path('app_login') }}#}">Nb of WC</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('app_profile', {'user': app.user.id}) }}">{% if app.user.image %}
-                            <img src="/uploads/{{ app.user.image }}" alt="{{ app.user.name }}_image" height="32px" width="32px" class="rounded-circle user_avi" m-0 pt-0 pb-0>{% else %}{{ app.user.name }}{% endif %}</a>
+                    <a class="nav-link" href="{{ path('app_profile', {'user': app.user.id}) }}">
+                        {% if app.user.image %}
+                            <img src="/uploads/{{ app.user.image }}" alt="{{ app.user.name }}_image" height="32px" width="32px" class="rounded-circle user_avi" m-0 pt-0 pb-0>
+                        {% else %}{{ app.user.name }}
+                        {% endif %}
+                    </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('app_logout') }}">Log out</a>
