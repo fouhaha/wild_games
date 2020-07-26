@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block body %}
+    <section class="admin-users homepage-body">
+        <div class="return-admin-page">
+            <a href="{{ path('admin_index') }}">Return to main page</a>
+        </div>
+        <div class="container-fluid user-details">
+            {{ form_start(form) }}
+            <div class="row">
+                <div class="col-md-3 search-field">
+                    {{ form_row(form.name) }}
+                </div>
+                <div class="col-md-3 search-field">
+                    {{ form_row(form.email) }}
+                </div>
+                <div class="col-md-3 search-field">
+                    {{ form_row(form.coins, {
+                        'attr': {
+                            'type': 'number',
+                            'min': '0',
+                        }
+                    }) }}
+                </div>
+                <div class="col-md-3 search-field">
+                    {{ form_row(form.imageFile) }}
+                </div>
+            </div>
+            <button type="submit" class="btn btn-save-bottom">Save</button>
+            {{ form_end(form) }}
+        </div>
+    </section>
+{% endblock %}

@@ -8,12 +8,12 @@
             <li class="nav-item dropdown">
                 {% if is_granted('ROLE_ADMIN') %}
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Games
+                        Administrate
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="{#{{ path('program_index') }}#}">BlackJack</a>
-                        <a class="dropdown-item" href="#">Roulette</a>
-                        <a class="dropdown-item" href="#">421</a>
+                        <a class="dropdown-item" href="{{ path('admin_users') }}">Users</a>
+                        <a class="dropdown-item" href="#">Comments</a>
+                        <a class="dropdown-item" href="#">Smthg else to come</a>
                     </div>
                 {% endif %}
             </li>
@@ -28,18 +28,18 @@
                 </div>
             </li>
         </ul>
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ml-auto navbar-list">
             {% if not app.user %}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('app_login') }}">Sign in</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sign up</a>
+                    <a class="nav-link" href="{{ path('app_register') }}">Sign up</a>
                 </li>
             {% endif %}
             {% if app.user %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{#{{ path('app_login') }}#}">Nb of WC</a>
+                    <div class="navbar-coins"> {{ app.user.coins }} W.C</div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('app_profile', {'user': app.user.id}) }}">

@@ -48,9 +48,15 @@ html, body {
         border-color: $secondary-color;
     }
 
-    a {
+    .navbar-list {
+        align-items: baseline;
+    }
+
+
+    a, .navbar-coins {
         color: $secondary-color !important;
         font-size: 2rem;
+        margin-left: 20px;
     }
 
     .dropdown-menu {
@@ -167,6 +173,86 @@ html, body {
             display: block;
         }
     }
+
+    .user-details {
+        background-color: $primary-color;
+        opacity: 0.95;
+        border-radius: 20px 0 20px 0;
+        width: 90%;
+
+        form {
+            padding: 20px;
+        }
+
+        .search-field {
+            color: $secondary-color;
+        }
+    }
+}
+
+.register-login-form {
+    background-color: $primary-color;
+    color: $secondary-color;
+    font-family: $eastwood-font;
+    font-size: 2rem;
+    border-radius: 20px 0 20px 0;
+    width: 75%;
+    margin: 100px auto;
+    padding: 20px;
+
+    .form-group {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    .btn {
+        width: 50%;
+        background-color: $secondary-color;
+        color: $primary-color;
+        font-size: 2rem;
+        font-weight: bold;
+        display: block;
+        margin: 20px auto;
+    }
+}
+
+.profilepage-body {
+    display: flex;
+
+    .profilepage-container {
+        background-color: $primary-color;
+        opacity: 0.95;
+        border-radius: 20px 0 20px 0;
+        width: 90%;
+        margin-top: 250px;
+        float: left;
+        color: $secondary-color;
+        padding: 20px;
+
+        h1 {
+            font-family: $eastwood-font;
+            margin-bottom: 20px;
+        }
+
+        .custom-file-input {
+            color: black;
+            background-color: #868686;
+        }
+    }
+}
+
+.btn-save-bottom {
+    width: 25%;
+    background-color: $secondary-color;
+    color: $primary-color;
+    font-size: 2rem;
+    font-weight: bold;
+    display: block;
+    margin: 10px auto;
 }
 
 .return-admin-page {
@@ -189,22 +275,15 @@ html, body {
 }
 
 .loginpage {
-    background-color: $secondary-color;
-    height: 100%;
+    width: 50%;
 
-    form {
-        width: 75%;
+    .login-form {
+        width: 90%;
         margin: 0 auto;
-        padding-top: 100px;
+        padding: 25px;
 
         @media screen and (min-width: 768px) {
             width: 400px;
-        }
-
-        .btn {
-            display: block;;
-            width: 50%;
-            margin: 30px auto;
         }
 
         h1 {
@@ -217,4 +296,8 @@ html, body {
 
 .profilepage-body {
     margin-top: 75px;
+}
+
+.hidden-form-field {
+    display: none;
 }

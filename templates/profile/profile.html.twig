@@ -20,13 +20,24 @@
                 <h1>Welcome {{app.user.name}}</h1>
             </div>
             <div>
-                {{ form_start(form, {
-                    'attr': {
-                        'class': 'form-group',
-                        'novalidate': 'novalidate'
-                    }}) }}
-
-                    <button type="submit" class="btn btn-search-user">Save</button>
+                {{ form_start(form) }}
+                {{ form_widget(form.imageFile,
+                    { 'attr': {
+                        'class': 'custom-file-input'
+                    } }) }}
+                {{ form_widget(form.name,
+                    { 'attr': {
+                        'class': 'hidden-form-field'
+                    } }) }}
+                {{ form_widget(form.email,
+                    { 'attr': {
+                        'class': 'hidden-form-field'
+                    } }) }}
+                {{ form_widget(form.coins,
+                    { 'attr': {
+                        'class': 'hidden-form-field'
+                    } }) }}
+                    <button type="submit" class="btn btn-save-bottom">Save</button>
                 {{ form_end(form) }}
             </div>
         </div>

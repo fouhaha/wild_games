@@ -26,12 +26,12 @@
                                 {% if 'ROLE_ADMIN' not in user.roles %}
                                     <tr class="tr-user">
 
-                                        <td class="search_response"><a href="#{{ path('') }}"> {{ user.name }} </a></td>
-                                        <td class="search_response"><a href="#"> {{ user.email}} </a></td>
+                                        <td class="search_response"><a href="{{ path('admin_user_detail', {'user': user.id}) }}"> {{ user.name }} </a></td>
+                                        <td class="search_response"><a href="{{ path('admin_user_detail', {'user': user.id}) }}"> {{ user.email}} </a></td>
                                         <td class="search_response"> {{ user.coins}} </td>
                                         <td class="search_response">
                                             {% if user.image %}
-                                                <a href="#"> <img src="/uploads/{{ user.image }}" alt="{{ user.name }}_image" height="32px" width="32px" class="rounded-circle user_avi" m-0 pt-0 pb-0></a>
+                                                <a href="{{ path('admin_user_detail', {'user': user.id}) }}"> <img src="/uploads/{{ user.image }}" alt="{{ user.name }}_image" height="32px" width="32px" class="rounded-circle user_avi" m-0 pt-0 pb-0></a>
                                             {% else %} /
                                             {% endif %} </td>
                                     </tr>
