@@ -30,14 +30,13 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @param Request $request
      * @param UserRepository $userRepo
      * @return Response
      * @Route("/users", name="users")
      */
-    public function users(Request $request, UserRepository $userRepo): Response
+    public function users(UserRepository $userRepo): Response
     {
-        $users = $this->getDoctrine()->getRepository(User::class)
+        $users = $userRepo
             ->findAll();
 
         return $this->render('admin/users.html.twig', ['users' => $users]);
@@ -67,5 +66,4 @@ class AdminController extends AbstractController
 
         return $this->render('admin/user.html.twig', ['form' => $form->createView()]);
     }
-
 }
