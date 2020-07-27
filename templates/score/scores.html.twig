@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Scoreboard
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <section class="scorepage">
+        <div class="return-main-page">
+            <a href="{{ path('app_index') }}">Return to main page</a>
+        </div>
+        <div class="container-fluid scorepage-container">
+            <h1>Scoreboard</h1>
+            {% for score in scores %}
+                {% if 'ROLE_ADMIN' not in score.roles %}
+                    <div class="row odd-even">
+                        <div class="col-md-6">
+                            {{ score.name }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ score.coins }}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
