@@ -4,14 +4,18 @@
 namespace App\Controller;
 
 
+use App\Entity\Comment;
 use App\Entity\User;
 use App\Form\UserType;
+use App\Repository\CommentRepository;
 use App\Repository\UserRepository;
+use Doctrine\ORM\EntityManager;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\ORM\EntityManagerInterface;
 
 /**
  * @IsGranted("ROLE_ADMIN")
@@ -21,6 +25,13 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class AdminController extends AbstractController
 {
+    protected $em;
+
+    public function __construct(EntityManagerInterface $em)
+    {
+        $this->em = $em;
+    }
+
     /**
      * @Route("/", name="index")
      */
@@ -45,7 +56,7 @@ class AdminController extends AbstractController
     /**
      * @param User $user
      * @param Request $request
-     * @Route("/user/{user}", name="user_detail", methods={"GET","POST"})
+     * @Route("/user/update/{user}", name="user_detail", methods={"GET","POST"})
      * @return Response
      */
     public function updateUserDetail(User $user, Request $request): Response
@@ -68,7 +79,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="user_delete")
+     * @Route("/user/delete/{id}", name="user_delete")
      * @param Request $request
      * @param User $user
      * @return Response
@@ -82,5 +93,15 @@ class AdminController extends AbstractController
         }
 
         return $this->redirectToRoute('admin_users');
+    }
+
+    /**
+     * @Route("/comments", name="comments")
+     * @return Response
+     */
+    public function findAllComments(): Response
+    {
+        $comments = $this->em->getRepository(Comment::class)->findByGames();
+        return $this->render('admin/comments.html.twig', ['comments' => $comments]);
     }
 }
