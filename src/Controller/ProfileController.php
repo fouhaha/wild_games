@@ -22,6 +22,12 @@ class ProfileController extends AbstractController
      */
     public function profile(User $user, Request $request):Response
     {
+        $userId = $this->getUser()->getId();
+        $idProfile = $user->getId();
+        if ($userId != $idProfile) {
+            return $this->redirectToRoute('app_profile', ['user' => $userId]);
+        }
+        
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 

@@ -45,10 +45,10 @@ class AdminController extends AbstractController
     /**
      * @param User $user
      * @param Request $request
-     * @Route("/user/{user}", name="user_detail")
+     * @Route("/user/{user}", name="user_detail", methods={"GET","POST"})
      * @return Response
      */
-    public function userDetail(User $user, Request $request): Response
+    public function updateUserDetail(User $user, Request $request): Response
     {
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
@@ -64,6 +64,23 @@ class AdminController extends AbstractController
             return $this->redirectToRoute('admin_users', ['user' => $user->getId()]);
         }
 
-        return $this->render('admin/user.html.twig', ['form' => $form->createView()]);
+        return $this->render('admin/user.html.twig', ['form' => $form->createView(), 'user' => $user]);
+    }
+
+    /**
+     * @Route("/{id}", name="user_delete")
+     * @param Request $request
+     * @param User $user
+     * @return Response
+     */
+    public function deleteUser(Request $request, User $user): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($user);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('admin_users');
     }
 }

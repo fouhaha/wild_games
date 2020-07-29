@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bbbeb32ae2742223d830fd231edefa7d",
+    "content-hash": "b5335568f5ea6a4baad0d97a7ce636aa",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -5855,7 +5855,7 @@
         },
         {
             "name": "symfony/security-csrf",
-            "version": "v4.4.10",
+            "version": "v4.4.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security-csrf.git",

@@ -54,7 +54,7 @@ class User implements UserInterface, \Serializable
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $coins = 1000;
+    private $coins;
 
     /**
      * @ORM\Column(type="boolean")
@@ -72,6 +72,11 @@ class User implements UserInterface, \Serializable
      * @var File
      */
     private $imageFile;
+
+    public function __construct()
+    {
+        $this->coins = 1000;
+    }
 
     public function getId(): ?int
     {
